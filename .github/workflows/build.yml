@@ -52,14 +52,14 @@ jobs:
         run: |
           pip install mmcv-full==latest+torch${{matrix.torch}}+cu101 -f https://openmmlab.oss-accelerate.aliyuncs.com/mmcv/dist/index.html
           pip install -r requirements.txt
-      - name: Lint with flake8
-        run: flake8 .
-      - name: Lint with isort
-        run: isort --recursive --check-only --diff mmedit/ tools/ tests/
-      - name: Format with yapf
-        run: yapf -r -d mmedit/ tools/ configs/ tests/
-      - name: Check docstring
-        run: interrogate -v --ignore-init-method --ignore-module --ignore-nested-functions --ignore-regex "__repr__" --fail-under 80 mmedit
+      # - name: Lint with flake8
+      #   run: flake8 .
+      # - name: Lint with isort
+      #   run: isort --recursive --check-only --diff mmedit/ tools/ tests/
+      # - name: Format with yapf
+      #   run: yapf -r -d mmedit/ tools/ configs/ tests/
+      # - name: Check docstring
+      #   run: interrogate -v --ignore-init-method --ignore-module --ignore-nested-functions --ignore-regex "__repr__" --fail-under 80 mmedit
       - name: Build and install
         env:
           CUDA_ARCH: ${{matrix.cuda_arch}}

@@ -63,11 +63,14 @@ class SRVid4Dataset(BaseSRDataset):
         Returns:
             dict: Returned dict for LQ and GT pairs.
         """
+        print(vars(self))
         data_infos = []
         with open(self.ann_file, 'r') as fin:
             for line in fin:
+                print(line)
                 folder, frame_num, _ = line.strip().split(' ')
                 for i in range(int(frame_num)):
+                    print(self.filename_tmpl.format(i))
                     data_infos.append(
                         dict(
                             lq_path=self.lq_folder,
